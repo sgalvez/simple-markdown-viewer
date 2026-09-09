@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f5" />
+    <meta name="description" content="Abre y lee tus archivos Markdown en el navegador, sin subirlos a ningún servidor." />
+    <title>Markdown — Visor local</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand" aria-label="Markdown, visor local">
+          <svg class="brand-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="10" fill="currentColor"/><path d="M8 23V13l5 6 5-6v10m7-10v10m-3-3 3 3 3-3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="brand-name">Markdown<span class="brand-description">Visor local</span></span>
+        </div>
+        <div id="current-file" class="current-file" hidden>
+          <span class="file-dot" aria-hidden="true"></span>
+          <span id="file-name"></span>
+        </div>
+        <button class="button button-dark" id="open-file" type="button">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2.5 6V4.5A1.5 1.5 0 0 1 4 3h4l2 2h6a1.5 1.5 0 0 1 1.5 1.5V8M2.5 6v9A1.5 1.5 0 0 0 4 16.5h11.5a1 1 0 0 0 1-.8L18 8H6L4 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Abrir archivo
+        </button>
+        <input id="file-input" type="file" accept=".md,.markdown" hidden />
+      </header>
+
+      <main id="main">
+        <div id="notice" class="notice" role="alert" hidden></div>
+        <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+        <section id="welcome" class="welcome" aria-labelledby="welcome-title">
+          <div class="intro"><span class="eyebrow">MENOS RUIDO. MÁS LECTURA.</span><h1 id="welcome-title">Un lugar para tu Markdown.</h1><p>Abre un documento. Disfruta del contenido.</p></div>
+          <div class="drop-zone">
+            <div class="document-illustration" aria-hidden="true">
+              <svg viewBox="0 0 100 112" fill="none"><path class="document-shadow" d="M21 7h42l20 20v71a7 7 0 0 1-7 7H21a7 7 0 0 1-7-7V14a7 7 0 0 1 7-7Z"/><path d="M26 3h42l20 20v71a7 7 0 0 1-7 7H26a7 7 0 0 1-7-7V10a7 7 0 0 1 7-7Z" fill="white" stroke="#cad8d2" stroke-width="1.5"/><path d="M68 3v14a6 6 0 0 0 6 6h14" stroke="#cad8d2" stroke-width="1.5"/><path d="M33 54V37l8 10 8-10v17m16-17v17m-5-5 5 5 5-5" stroke="#34765f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 69h40M33 78h30" stroke="#dbe5df" stroke-width="3" stroke-linecap="round"/></svg>
+              <span class="document-plus">+</span>
+            </div>
+            <h2>Arrastra tu archivo Markdown aquí</h2>
+            <p>O selecciónalo desde tu equipo</p>
+            <button class="button button-light" id="choose-file" type="button">Seleccionar archivo <span aria-hidden="true">↗</span></button>
+            <div class="file-types"><span>.md</span><span>.markdown</span><span class="file-types-note">Un archivo a la vez</span></div>
+          </div>
+          <p class="welcome-note"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8 3 3 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Solo lectura. Tu archivo original permanece intacto.</p>
+        </section>
+
+        <section id="reader" class="reader" aria-label="Documento Markdown" hidden>
+          <div class="reader-caption"><span>DOCUMENTO</span><span id="file-detail"></span></div>
+          <article id="document" class="markdown-body" tabindex="-1" aria-label="Contenido del documento"></article>
+        </section>
+      </main>
+
+      <footer class="footer"><span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 7V4.5a2.5 2.5 0 0 1 5 0V7" stroke="currentColor" stroke-width="1.2"/></svg>El documento se procesa en tu navegador.</span><span class="footer-hint">Arrastra, abre, lee.</span></footer>
+    </div>
+    <div id="drop-overlay" class="drop-overlay" hidden aria-hidden="true"><div><span class="drop-arrow">↓</span><strong>Suelta tu Markdown aquí</strong><span>Lo abriremos para ti</span></div></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

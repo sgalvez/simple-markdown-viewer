@@ -1,0 +1,87 @@
+LICENCIA PROPIETARIA DE USO LOCAL GRATUITO
+Markdown Viewer — Versión 1.0
+
+Copyright (c) 2026 sgalvez. Todos los derechos reservados, salvo los permisos
+expresamente concedidos a continuación.
+
+1. Alcance
+
+Esta licencia se aplica al código, la interfaz y la documentación originales
+de Markdown Viewer (el «Software»), en la medida en que estén protegidos por
+la legislación aplicable. El titular que concede esta licencia es sgalvez
+(el «Titular»). Los componentes de terceros se rigen por sus propias licencias.
+
+2. Uso permitido
+
+El Titular concede una licencia gratuita, no exclusiva y no sublicenciable
+para descargar, inspeccionar, instalar, compilar y ejecutar el Software sin
+modificaciones en equipos propios o bajo el control del usuario o de su
+organización, exclusivamente para uso local personal, educativo, profesional
+o interno de una organización, incluso cuando esta tenga fines comerciales.
+
+Se permiten las copias locales y de respaldo necesarias para ese uso, así
+como los cambios de configuración previstos por las instrucciones del
+Software. Compilar el Software conforme a esas instrucciones está permitido.
+Las copias deben conservar esta licencia y los avisos de autoría y de terceros.
+
+Leer reportes de trabajo, incluidos reportes generados por IA, está permitido.
+Esta licencia no otorga al Titular derechos sobre los documentos que el
+usuario abra con el Software ni restringe el uso de esos documentos.
+
+3. Usos que requieren autorización previa por escrito
+
+Salvo los permisos de la sección 2 y las excepciones de la sección 4, se
+requiere autorización previa por escrito del Titular para:
+
+- Redistribuir, publicar, compartir con terceros, vender, alquilar o
+  sublicenciar copias del Software, en código fuente o compilado.
+- Modificar el Software o crear, mantener o distribuir versiones derivadas,
+  incluidos forks, adaptaciones o productos basados en su código o interfaz.
+- Incorporar el Software o partes protegidas de él a otros productos.
+- Ofrecer el Software como un servicio alojado para terceros, gratuito o de
+  pago, o comercializar el Software como producto.
+- Eliminar o alterar los avisos de autoría o licencia en las copias permitidas.
+
+El permiso para uso profesional o interno no autoriza la comercialización ni
+la redistribución del Software. Los derechos no concedidos quedan reservados.
+
+4. Excepciones legales, plataformas y componentes de terceros
+
+Esta licencia no limita derechos que la legislación aplicable conceda y que
+no puedan excluirse, ni sustituye licencias válidas concedidas por separado.
+
+Si el Titular publica el Software en una plataforma cuyos términos conceden
+a sus usuarios derechos sobre repositorios públicos, esos derechos conservan
+su alcance conforme a dichos términos. En particular, publicar un repositorio
+público en GitHub permite a otros usuarios visualizarlo y hacer forks dentro
+del servicio conforme a sus términos. Esta licencia no revoca ese permiso ni
+concede por sí misma derechos adicionales de redistribución o modificación.
+
+Las restricciones de esta licencia no se aplican a los componentes de terceros
+considerados por separado. Se conservan sus licencias, avisos y permisos.
+Véase public/THIRD_PARTY_NOTICES.txt para las dependencias incluidas en el visor;
+en el sitio compilado, ese archivo se encuentra en THIRD_PARTY_NOTICES.txt.
+
+5. Autoría y nombre
+
+Las copias permitidas deben conservar la identificación del Titular. Esta
+licencia no autoriza a atribuirse la autoría del Software ni a presentar una
+versión de terceros como oficial o respaldada por el Titular. No se conceden
+derechos sobre marcas mediante esta licencia.
+
+6. Ausencia de garantías y limitación de responsabilidad
+
+En la máxima medida permitida por la legislación aplicable, el Software se
+proporciona «tal cual», sin garantías expresas o implícitas, incluidas las de
+comerciabilidad, idoneidad para un propósito particular y no infracción.
+
+En esa misma medida, el Titular no será responsable por daños, pérdidas de
+datos o beneficios, ni otras reclamaciones derivadas del uso o la imposibilidad
+de uso del Software. Estas disposiciones no excluyen garantías ni
+responsabilidades que legalmente no puedan excluirse.
+
+7. Autorizaciones adicionales
+
+Cualquier permiso adicional debe obtenerse por escrito del Titular. La mera
+disponibilidad del código no amplía los permisos expresamente concedidos.
+Esta es una licencia propietaria; no es una licencia de código abierto.
