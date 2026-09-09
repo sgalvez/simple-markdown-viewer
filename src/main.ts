@@ -107,7 +107,6 @@ async function openFiles(files: File[]) {
     document.querySelector<HTMLElement>('#file-detail')!.textContent = file.name.split('.').pop()!.toUpperCase();
     document.querySelector<HTMLElement>('#welcome')!.hidden = true;
     document.querySelector<HTMLElement>('#reader')!.hidden = false;
-    document.title = `${file.name} — Markdown`;
     status.textContent = `${file.name} abierto.`;
     window.scrollTo({ top: 0 });
     article.focus({ preventScroll: true });
