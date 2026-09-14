@@ -21,8 +21,13 @@ Este proyecto es un intento por simplificar ese momento. Una página, un archivo
 1. **Abre el visor** en tu navegador de Windows.
 2. **Arrastra tu archivo Markdown** desde el Explorador, o pulsa **Abrir archivo**.
 3. **Lee el documento con formato.** Para ver otro, arrástralo sobre la misma página.
+4. **Copia el Markdown original** con **Copiar Markdown**, en el encabezado del documento, para pegarlo en otra aplicación.
 
-La interfaz mantiene a mano lo esencial: el nombre del archivo, el botón para abrir otro y el contenido.
+La interfaz mantiene a mano lo esencial: el nombre del archivo, las acciones para abrir y copiar, y el contenido.
+
+**Copiar Markdown** copia el texto fuente completo, conservando su sintaxis y espacios. El botón muestra **Copiado** durante dos segundos cuando la escritura termina correctamente. Se deshabilita mientras se abre un archivo o se copia, y cuando el documento está vacío o solo contiene espacios. Si falla la apertura de otro archivo, puedes seguir copiando el documento anterior.
+
+La copia requiere un navegador compatible y abrir el visor desde HTTPS (como GitHub Pages) o localhost. Si el navegador impide acceder al portapapeles, aparece un aviso para que puedas revisar los permisos y reintentar.
 
 - **Lectura cómoda:** tipografía clara, una columna centrada y tablas y bloques de código con desplazamiento cuando lo necesitan.
 - **Tus archivos, en tu equipo:** el documento se procesa en el navegador y no se sube al servidor.

@@ -45,7 +45,13 @@
         </section>
 
         <section id="reader" class="reader" aria-label="Documento Markdown" hidden>
-          <div class="reader-caption"><span>DOCUMENTO</span><span id="file-detail"></span></div>
+          <div class="reader-caption">
+            <span>DOCUMENTO</span>
+            <div class="reader-actions">
+              <span id="file-detail"></span>
+              <button class="button button-light" id="copy-markdown" type="button" disabled>Copiar Markdown</button>
+            </div>
+          </div>
           <article id="document" class="markdown-body" tabindex="-1" aria-label="Contenido del documento"></article>
         </section>
       </main>
