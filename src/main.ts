@@ -7,13 +7,62 @@ const notice = document.querySelector<HTMLDivElement>('#notice')!;
 const status = document.querySelector<HTMLParagraphElement>('#status')!;
 const article = document.querySelector<HTMLElement>('#document')!;
 const overlay = document.querySelector<HTMLDivElement>('#drop-overlay')!;
+const copyButton = document.querySelector<HTMLButtonElement>('#copy-markdown')!;
 let requestId = 0;
 let dragDepth = 0;
+let currentSource = '';
+let opening = false;
+let copying = false;
+let copyFeedbackTimer: number | undefined;
 
 function showError(message: string) {
   notice.textContent = message;
   notice.hidden = false;
   status.textContent = '';
+}
+
+function updateCopyButton() {
+  const empty = !currentSource.trim();
+  copyButton.disabled = empty || opening || copying;
+  copyButton.title = empty ? 'Este documento está vacío.' : 'Copiar el Markdown original completo';
+}
+
+function resetCopyFeedback() {
+  window.clearTimeout(copyFeedbackTimer);
+  copyFeedbackTimer = undefined;
+  copyButton.textContent = 'Copiar Markdown';
+}
+
+async function copyMarkdown() {
+  if (copyButton.disabled) return;
+  const currentRequest = requestId;
+  const source = currentSource;
+  resetCopyFeedback();
+  if (!navigator.clipboard?.writeText) {
+    showError('Tu navegador no permite copiar aquí. Abre el visor en HTTPS o localhost e inténtalo de nuevo.');
+    return;
+  }
+  copying = true;
+  copyButton.textContent = 'Copiando…';
+  updateCopyButton();
+  notice.hidden = true;
+  status.textContent = '';
+  try {
+    await navigator.clipboard.writeText(source);
+    // A newer opening owns the reader's messages, even if that opening fails.
+    if (currentRequest !== requestId) return;
+    copyButton.textContent = 'Copiado';
+    status.textContent = 'Markdown copiado al portapapeles.';
+    copyFeedbackTimer = window.setTimeout(resetCopyFeedback, 2000);
+  } catch {
+    if (currentRequest === requestId) {
+      resetCopyFeedback();
+      showError('No pudimos copiar el Markdown. Revisa los permisos del portapapeles de tu navegador y vuelve a intentarlo.');
+    }
+  } finally {
+    copying = false;
+    updateCopyButton();
+  }
 }
 
 function renderMarkdown(source: string): DocumentFragment {
@@ -80,6 +129,9 @@ function renderMarkdown(source: string): DocumentFragment {
 async function openFiles(files: File[]) {
   if (!files.length) return;
   const currentRequest = ++requestId;
+  opening = false;
+  resetCopyFeedback();
+  updateCopyButton();
   notice.hidden = true;
   if (files.length !== 1) {
     showError('Abre un archivo a la vez. Arrastra o selecciona solo un Markdown.');
@@ -91,6 +143,8 @@ async function openFiles(files: File[]) {
     return;
   }
   status.textContent = `Abriendo ${file.name}…`;
+  opening = true;
+  updateCopyButton();
   try {
     const source = await file.text();
     if (currentRequest !== requestId) return;
@@ -102,6 +156,7 @@ async function openFiles(files: File[]) {
       content.append(empty);
     }
     article.replaceChildren(content);
+    currentSource = source;
     document.querySelector<HTMLElement>('#file-name')!.textContent = file.name;
     document.querySelector<HTMLElement>('#current-file')!.hidden = false;
     document.querySelector<HTMLElement>('#file-detail')!.textContent = file.name.split('.').pop()!.toUpperCase();
@@ -112,9 +167,15 @@ async function openFiles(files: File[]) {
     article.focus({ preventScroll: true });
   } catch {
     if (currentRequest === requestId) showError('No pudimos abrir este archivo. Intenta seleccionarlo de nuevo.');
+  } finally {
+    if (currentRequest === requestId) {
+      opening = false;
+      updateCopyButton();
+    }
   }
 }
 
+copyButton.addEventListener('click', () => void copyMarkdown());
 document.querySelector('#open-file')!.addEventListener('click', () => fileInput.click());
 document.querySelector('#choose-file')!.addEventListener('click', () => fileInput.click());
 fileInput.addEventListener('change', () => {

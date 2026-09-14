@@ -45,7 +45,11 @@ main{flex:1;width:100%;min-width:0}
 .footer svg{width:14px;height:14px;flex-shrink:0}
 .footer-hint{color:#a0a9a2;letter-spacing:.1px}
 .reader{max-width:944px;margin:0 auto;padding:30px 24px 48px}
-.reader-caption{display:flex;justify-content:space-between;color:#89968d;font-size:10px;letter-spacing:1.5px;padding:0 1px 13px}
+.reader-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#89968d;font-size:10px;letter-spacing:1.5px;padding:0 1px 13px}
+.reader-actions{display:flex;align-items:center;gap:12px;margin-left:auto}
+#copy-markdown{min-width:151px;letter-spacing:normal}
+.button:disabled{cursor:default;opacity:.55}
+.button-light:disabled:hover{background:#fff;border-color:#d6ddd6}
 .notice{max-width:896px;margin:22px auto 0;padding:13px 17px;border:1px solid #e3cfaf;border-radius:7px;background:#fff8eb;color:#835d29;font-size:13px;line-height:1.5}
 .drop-overlay{position:fixed;inset:12px;z-index:10;border:2px dashed #65967a;border-radius:15px;background:#f2f8f2f5;backdrop-filter:blur(5px);display:grid;place-items:center;pointer-events:none}
 .drop-overlay>div{display:flex;align-items:center;flex-direction:column;gap:15px;color:#34765f}
